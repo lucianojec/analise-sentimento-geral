@@ -1,0 +1,24 @@
+.App {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+.item {
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.item h2 {
+  color: #333;
+}
+
+.item ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.item li {
+  list-style-type: disc;
+}
