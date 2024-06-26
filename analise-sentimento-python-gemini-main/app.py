@@ -6,7 +6,7 @@ genai.configure(api_key="AIzaSyAmgGTQxa1HMLBpOK7OiNuFo4_8x9_gZ9A")
 
 model = genai.GenerativeModel('gemini-pro')
 
-with open('texto5.txt', 'r', encoding='utf-8') as file:
+with open('texto4.txt', 'r', encoding='utf-8') as file:
     texto = file.read()
 
 comando = (
@@ -36,7 +36,7 @@ comando = (
 response = model.generate_content(comando)
 
 # Exibir a resposta no console
-print(response.text)
+# print(response.text)
 
 # Verificar se a resposta não está vazia e converter aspas simples para aspas duplas
 if response.text:
@@ -51,7 +51,7 @@ if response.text:
         )
 
         # Salvar a resposta em um arquivo JSON na pasta public do frontend
-        with open(frontend_public_path, 'w', encoding='utf-8') as json_file:
+        with open('resultado.json', 'w', encoding='utf-8') as json_file:
             json.dump(response_json, json_file, ensure_ascii=False, indent=4)
             
     except json.JSONDecodeError as e:

@@ -1,23 +1,23 @@
 {
-    "classe": "positiva",
+    "classe": "positivo",
     "sentimentos": {
-        "alegria": 70,
-        "satisfação": 80
+        "orgulho": 80,
+        "satisfacao": 60,
+        "satisfacao_profissional": 85,
+        "reconhecimento": 90,
+        "gratidao": 20
     },
     "contribuicoes": {
-        "Boa tarde": "cortesia",
-        "cobriu as férias": "responsabilidade",
-        "finalizando": "conclusão",
-        "já fez todos os repascesses necessários": "eficiência",
-        "está disponível": "prontidão",
-        "a central de serviço": "colaboração",
-        "está disponível para reazalizão do projeto BMG": "capacidade",
-        "Dúvidas a disposição": "disponibilidade"
+        "se preocupa com detalhes": "orgulho",
+        "demonstra o valor gerado e riscos de forma clara": "satisfacao",
+        "contém o plano de acao com datas e responsáveis": "satisfacao_profissional",
+        "Parabéns pelo trabalho!": "reconhecimento",
+        "estas atitudes se refletem em resultados": "gratidao"
     },
     "razoes_possiveis": [
-        "Conclusão das tarefas com sucesso",
-        "Disponibilidade para novos projetos",
-        "Reconhecimento da eficiência e responsabilidade"
+        "O remetente reconhece e elogia o trabalho bem feito do destinatário.",
+        "O remetente destaca esforços específicos que contribuíram para o sucesso.",
+        "O remetente expressa o impacto positivo do trabalho do destinatário nos resultados."
     ],
-    "explicacao_modelo": "A frase expressa uma avaliação positiva do desempenho do colaborador Eduardo Barbosa, que cumpriu suas tarefas e está disponível para novos projetos. As palavras-chave indicam que ele é eficiente, responsável e colaborativo, o que sugere sentimentos de alegria e satisfação entre as pessoas envolvidas."
+    "explicacao_modelo": "A mensagem contém várias palavras e frases que expressam sentimentos positivos, tais como 'orgulho', 'satisfacao', 'reconhecimento' e 'gratidao'. O remetente elogia especificamente os esforços do destinatário em 'se preocupar com os detalhes', 'demonstrar o valor gerado e riscos de forma clara' e 'conter o plano de acao com datas e responsáveis'. Além disso, o remetente afirma que 'estas atitudes se refletem em resultados', sugerindo que o trabalho do destinatário teve um impacto positivo nos resultados da empresa."
 }

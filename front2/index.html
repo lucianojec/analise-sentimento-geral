@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Analysis Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+        }
+        .client-select {
+            margin: 20px 0;
+        }
+        .chart-container {
+            width: 50%;
+            margin: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Sentiment Analysis Dashboard</h1>
+    <div class="client-select">
+        <label for="clientSelect">Select Client:</label>
+        <select id="clientSelect">
+            <option value="">--Select Client--</option>
+        </select>
+    </div>
+    <table id="sentimentTable">
+        <thead>
+            <tr>
+                <th>Sentiment</th>
+                <th>Intensity</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <div class="chart-container">
+        <canvas id="sentimentChart"></canvas>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        fetch('data.json')
+            .then(response => response.json())
+            .then(data => {
+                const clients = data.clientes;
+                const analysis = data.analisys;
+
+                const clientSelect = document.getElementById('clientSelect');
+                clients.forEach(client => {
+                    const option = document.createElement('option');
+                    option.value = client.id;
+                    option.textContent = client.nome;
+                    clientSelect.appendChild(option);
+                });
+
+                clientSelect.addEventListener('change', function() {
+                    const selectedClientId = this.value;
+                    const clientAnalysis = analysis.filter(a => a.cliente_id == selectedClientId);
+
+                    const sentimentTableBody = document.getElementById('sentimentTable').querySelector('tbody');
+                    sentimentTableBody.innerHTML = '';
+
+                    if (clientAnalysis.length > 0) {
+                        const sentiments = clientAnalysis[0].sentimento;
+                        Object.keys(sentiments).forEach(sentiment => {
+                            const row = document.createElement('tr');
+                            const sentimentCell = document.createElement('td');
+                            const intensityCell = document.createElement('td');
+                            sentimentCell.textContent = sentiment;
+                            intensityCell.textContent = sentiments[sentiment];
+                            row.appendChild(sentimentCell);
+                            row.appendChild(intensityCell);
+                            sentimentTableBody.appendChild(row);
+                        });
+
+                        const chartData = {
+                            labels: Object.keys(sentiments),
+                            datasets: [{
+                                data: Object.values(sentiments),
+                                backgroundColor: [
+                                    'rgba(255, 99, 132, 0.2)',
+                                    'rgba(54, 162, 235, 0.2)',
+                                    'rgba(255, 206, 86, 0.2)',
+                                    'rgba(75, 192, 192, 0.2)',
+                                    'rgba(153, 102, 255, 0.2)',
+                                    'rgba(255, 159, 64, 0.2)'
+                                ],
+                                borderColor: [
+                                    'rgba(255, 99, 132, 1)',
+                                    'rgba(54, 162, 235, 1)',
+                                    'rgba(255, 206, 86, 1)',
+                                    'rgba(75, 192, 192, 1)',
+                                    'rgba(153, 102, 255, 1)',
+                                    'rgba(255, 159, 64, 1)'
+                                ],
+                                borderWidth: 1
+                            }]
+                        };
+
+                        const ctx = document.getElementById('sentimentChart').getContext('2d');
+                        if (window.sentimentChart) {
+                            window.sentimentChart.destroy();
+                        }
+                        window.sentimentChart = new Chart(ctx, {
+                            type: 'pie',
+                            data: chartData,
+                            options: {
+                                responsive: true,
+                                plugins: {
+                                    legend: {
+                                        position: 'top',
+                                    },
+                                    tooltip: {
+                                        callbacks: {
+                                            label: function(tooltipItem) {
+                                                return tooltipItem.label + ': ' + tooltipItem.raw + '%';
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        });
+                    }
+                });
+            });
+    });
+</script>
+
+</body>
+</html>

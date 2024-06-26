@@ -1,0 +1,49 @@
+{
+    "clientes": [
+        {
+            "id": 1,
+            "nome": "bmg"
+        },
+        {
+            "id": 2,
+            "nome": "bradesco"
+        },
+        {
+            "id": 3,
+            "nome": "itau"
+        }
+    ],
+    "analisys": [
+        {
+            "cliente_id": 3,
+            "classe": "negativo",
+            "sentimento": {
+                "decepção": 60,
+                "frustração": 75,
+                "preocupação": 50,
+                "insatisfação": 40
+            }
+        },
+        {
+            "cliente_id": 1,
+            "classe": "neutra",
+            "sentimento": {}
+        },
+        {
+            "cliente_id": 2,
+            "classe": "neutra",
+            "sentimento": {}
+        },
+        {
+            "cliente_id": 2,
+            "classe": "positivo",
+            "sentimento": {
+                "orgulho": 80,
+                "gratidao": 20,
+                "satisfacao": 60,
+                "reconhecimento": 90,
+                "satisfacao_profissional": 85
+            }
+        }
+    ]
+}

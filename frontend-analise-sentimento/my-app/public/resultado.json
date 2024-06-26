@@ -1,25 +1,24 @@
 {
-    "classe": "positiva",
+    "classe": "negativo",
     "sentimentos": {
-        "satisfacao": 80,
-        "gratidao": 100,
-        "alegria": 50
+        "decepção": 70,
+        "preocupação": 60,
+        "insatisfação": 50,
+        "frustração": 40
     },
-    "contribuicoes": {
-        "Boa tarde": "positivo",
-        "conforme conversamos": "positivo",
-        "cobriu as férias": "positivo",
-        "finalizando dia 17/11": "positivo",
-        "já fez todos os repascesses necessários": "positivo",
-        "está disponível a central de serviço": "positivo",
-        "está disponível para reazalizão do projeto": "positivo",
-        "a partir do dia 27/11": "positivo",
-        "Dúvidas a disposição": "positivo"
+    "contribuições": {
+        "dificuldades": "decepção",
+        "aquém do esperado": "preocupação",
+        "impactos negativos": "insatisfação",
+        "feedbacks críticos": "frustração",
+        "substituição": "decepção",
+        "padrão mais elevado": "preocupação"
     },
     "razoes_possiveis": [
-        "O colaborador cumpriu com suas responsabilidades e está disponível para novos projetos.",
-        "O colaborador recebeu reconhecimento e agradecimento por seu trabalho.",
-        "O colaborador tem uma boa relação com seu superior."
+        "Desempenho aquém do esperado do colega de trabalho",
+        "Impactos negativos nos projetos",
+        "Feedbacks críticos do cliente",
+        "Necessidade de garantir a qualidade do trabalho e a satisfação do cliente"
     ],
-    "explicacao_modelo": "A frase expressa uma mensagem positiva devido ao uso de palavras e frases como 'Boa tarde', 'conforme conversamos', 'cobriu as férias', 'já fez todos os repascesses necessários', 'está disponível a central de serviço', 'está disponível para reazalizão do projeto', 'a partir do dia 27/11' e 'Dúvidas a disposição'. Essas palavras e frases indicam que o colaborador está sendo elogiado e valorizado por seu trabalho e que há uma boa relação entre o colaborador e seu superior."
+    "explicacao_modelo": "A frase expressa uma avaliação negativa do desempenho de um colega de trabalho. Os termos 'dificuldades', 'aquém do esperado' e 'impactos negativos' sugerem decepção e preocupação. Os 'feedbacks críticos' e a necessidade de uma 'substituição' indicam insatisfação e frustração. A frase reconhece o valor do colega, mas a decisão de substituí-lo sugere que esses sentimentos negativos superam os positivos."
 }
