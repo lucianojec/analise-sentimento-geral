@@ -1,0 +1,23 @@
+{
+    "classe": "positiva",
+    "sentimentos": {
+        "alegria": 70,
+        "satisfação": 80
+    },
+    "contribuicoes": {
+        "Boa tarde": "cortesia",
+        "cobriu as férias": "responsabilidade",
+        "finalizando": "conclusão",
+        "já fez todos os repascesses necessários": "eficiência",
+        "está disponível": "prontidão",
+        "a central de serviço": "colaboração",
+        "está disponível para reazalizão do projeto BMG": "capacidade",
+        "Dúvidas a disposição": "disponibilidade"
+    },
+    "razoes_possiveis": [
+        "Conclusão das tarefas com sucesso",
+        "Disponibilidade para novos projetos",
+        "Reconhecimento da eficiência e responsabilidade"
+    ],
+    "explicacao_modelo": "A frase expressa uma avaliação positiva do desempenho do colaborador Eduardo Barbosa, que cumpriu suas tarefas e está disponível para novos projetos. As palavras-chave indicam que ele é eficiente, responsável e colaborativo, o que sugere sentimentos de alegria e satisfação entre as pessoas envolvidas."
+}

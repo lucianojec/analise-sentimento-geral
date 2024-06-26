@@ -1,30 +1,16 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css'; // Assumindo que você tem um arquivo CSS para estilização
 
-const jsonData = [
-  {
-    classe: "positivo",
-    sentimentos: {
-      contentamento: 100
-    },
-    contribuicoes: {
-      boa: "contentamento",
-      noite: "contentamento",
-      "a todos": "contentamento"
-    },
-    razoes_possiveis: [
-      "boa noite",
-      "a todos",
-      "expressão educada",
-      "expressão de cumprimento"
-    ],
-    explicacao_modelo: "a frase expressa um sentimento positivo de contentamento..."
-    // Conteúdo truncado para brevidade
-  },
-  // Outros objetos do JSON...
-];
-
 function App() {
+  const [jsonData, setJsonData] = useState([]);
+
+  useEffect(() => {
+    fetch('/resultado.json')
+      .then(response => response.json())
+      .then(data => setJsonData([data])) // Ajustar para armazenar como array
+      .catch(error => console.error('Erro ao carregar o JSON:', error));
+  }, []);
+
   return (
     <div className="App">
       {jsonData.map((item, index) => (

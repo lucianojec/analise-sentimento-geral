@@ -1,0 +1,25 @@
+{
+    "classe": "positiva",
+    "sentimentos": {
+        "satisfacao": 80,
+        "gratidao": 100,
+        "alegria": 50
+    },
+    "contribuicoes": {
+        "Boa tarde": "positivo",
+        "conforme conversamos": "positivo",
+        "cobriu as férias": "positivo",
+        "finalizando dia 17/11": "positivo",
+        "já fez todos os repascesses necessários": "positivo",
+        "está disponível a central de serviço": "positivo",
+        "está disponível para reazalizão do projeto": "positivo",
+        "a partir do dia 27/11": "positivo",
+        "Dúvidas a disposição": "positivo"
+    },
+    "razoes_possiveis": [
+        "O colaborador cumpriu com suas responsabilidades e está disponível para novos projetos.",
+        "O colaborador recebeu reconhecimento e agradecimento por seu trabalho.",
+        "O colaborador tem uma boa relação com seu superior."
+    ],
+    "explicacao_modelo": "A frase expressa uma mensagem positiva devido ao uso de palavras e frases como 'Boa tarde', 'conforme conversamos', 'cobriu as férias', 'já fez todos os repascesses necessários', 'está disponível a central de serviço', 'está disponível para reazalizão do projeto', 'a partir do dia 27/11' e 'Dúvidas a disposição'. Essas palavras e frases indicam que o colaborador está sendo elogiado e valorizado por seu trabalho e que há uma boa relação entre o colaborador e seu superior."
+}
