@@ -12,7 +12,7 @@ def analise_sentimento(texto: str) -> str:
         modelo_engine = "gpt-3.5-turbo-instruct"
         # modelo_engine = "gpt-3.5-turbo"
         comando = ( 
-            "Por favor, realize uma análise profunda e detalhada "\
+            "Por favor, realize uma análise simples e objetiva "\
              "do sentimento expresso na frase abaixo, "\
              "classificando-a como positiva, negativa ou neutra. "\
              "Identifique e liste os sentimentos específicos presentes, "\
@@ -23,9 +23,9 @@ def analise_sentimento(texto: str) -> str:
              "Em seguida, sugira possíveis razões para esses sentimentos "\
              "com base no contexto da frase. Por fim, explique como você chegou " \
              "a essas conclusões. Retorne todas essas informações " \
-             "no seguinte formato de um objeto JSON: " \
+             "no seguinte formato de um objeto JSON valido e identado: " \
              "{" \
-                "'classe': 'classe'," \
+                "'classe': 'positivo, negativo ou neutro'," \
                 "'sentimentos': {'sentimento': 'intensidade'}," \
                 "'contribuicoes': {'palavra/frase': 'sentimento associado'}," \
                 "'razoes_possiveis': ['string']," \

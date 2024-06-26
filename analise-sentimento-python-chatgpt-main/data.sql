@@ -1,6 +1,7 @@
 -- Criação do banco de dados
 CREATE DATABASE datafeelings;
-\c datafeelings;
+
+\ c datafeelings;
 
 -- Criação da tabela clientes
 CREATE TABLE clientes (
