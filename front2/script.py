@@ -15,8 +15,8 @@ def get_data():
     cursor.execute("SELECT id, nome FROM clientes")
     clientes = cursor.fetchall()
 
-    # Query para obter as análises
-    cursor.execute("SELECT cliente_id, classe, sentimento FROM analisys")
+    # Query para obter as análises, incluindo a data de inserção
+    cursor.execute("SELECT cliente_id, classe, sentimento, data_insercao FROM analisys")
     analisys = cursor.fetchall()
 
     # Fechar a conexão
@@ -30,7 +30,8 @@ def get_data():
             {
                 "cliente_id": a[0],
                 "classe": a[1],
-                "sentimento": a[2]  # Já é um dicionário Python, não precisa de json.loads
+                "sentimento": a[2],  # Já é um dicionário Python, não precisa de json.loads
+                "data_insercao": a[3].isoformat()  # Converter datetime para string no formato ISO 8601
             } for a in analisys
         ]
     }

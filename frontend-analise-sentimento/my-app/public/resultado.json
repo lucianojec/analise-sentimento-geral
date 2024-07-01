@@ -1,24 +1,33 @@
 {
-    "classe": "negativo",
+    "classe": "positivo",
     "sentimentos": {
-        "decepção": 70,
-        "preocupação": 60,
-        "insatisfação": 50,
-        "frustração": 40
+        "gratidão": 70,
+        "orgulho": 80,
+        "felicidade": 50,
+        "otimismo": 60
     },
-    "contribuições": {
-        "dificuldades": "decepção",
-        "aquém do esperado": "preocupação",
-        "impactos negativos": "insatisfação",
-        "feedbacks críticos": "frustração",
-        "substituição": "decepção",
-        "padrão mais elevado": "preocupação"
+    "contribuicoes": {
+        "Ana Paula, com este seu complemento": {
+            "gratidão": 100
+        },
+        "seus relatórios são um exemplo a ser seguido": {
+            "orgulho": 100
+        },
+        "Parabéns pelo trabalho!": {
+            "felicidade": 100
+        },
+        "Parabens pelo trabalho duro com atuação no detalhe": {
+            "orgulho": 80
+        },
+        "quando analiso os resultados do território 5, vejo uma receita prevista para Q1 em 117% da meta": {
+            "otimismo": 50
+        }
     },
     "razoes_possiveis": [
-        "Desempenho aquém do esperado do colega de trabalho",
-        "Impactos negativos nos projetos",
-        "Feedbacks críticos do cliente",
-        "Necessidade de garantir a qualidade do trabalho e a satisfação do cliente"
+        "A mensagem expressa reconhecimento e apreciação pelo trabalho de Ana Paula.",
+        "O redator elogia a qualidade e o detalhamento dos relatórios de Ana Paula.",
+        "A frase contém parabéns pelo trabalho e pelos resultados alcançados.",
+        "A mensagem sugere que os esforços de Ana Paula estão gerando resultados positivos e uma perspectiva otimista para o futuro."
     ],
-    "explicacao_modelo": "A frase expressa uma avaliação negativa do desempenho de um colega de trabalho. Os termos 'dificuldades', 'aquém do esperado' e 'impactos negativos' sugerem decepção e preocupação. Os 'feedbacks críticos' e a necessidade de uma 'substituição' indicam insatisfação e frustração. A frase reconhece o valor do colega, mas a decisão de substituí-lo sugere que esses sentimentos negativos superam os positivos."
+    "explicacao_modelo": "A frase expressa sentimentos positivos, como gratidão, orgulho, felicidade e otimismo. Essas emoções são evocadas por palavras e frases que reconhecem as contribuições de Ana Paula e elogiam seu trabalho, seus esforços e seus resultados. O tom geral da mensagem é de apreço e apoio."
 }

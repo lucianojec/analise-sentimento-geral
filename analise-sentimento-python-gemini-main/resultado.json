@@ -1,23 +1,19 @@
 {
-    "classe": "positivo",
+    "classe": "positiva",
     "sentimentos": {
-        "orgulho": 80,
-        "satisfacao": 60,
-        "satisfacao_profissional": 85,
-        "reconhecimento": 90,
-        "gratidao": 20
+        "alegria": 20,
+        "gratidão": 30,
+        "entusiasmo": 40
     },
     "contribuicoes": {
-        "se preocupa com detalhes": "orgulho",
-        "demonstra o valor gerado e riscos de forma clara": "satisfacao",
-        "contém o plano de acao com datas e responsáveis": "satisfacao_profissional",
-        "Parabéns pelo trabalho!": "reconhecimento",
-        "estas atitudes se refletem em resultados": "gratidao"
+        "'Boa tarde'": "alegria",
+        "cobriu as férias": "gratidão",
+        "disponível a central de serviço": "entusiasmo"
     },
     "razoes_possiveis": [
-        "O remetente reconhece e elogia o trabalho bem feito do destinatário.",
-        "O remetente destaca esforços específicos que contribuíram para o sucesso.",
-        "O remetente expressa o impacto positivo do trabalho do destinatário nos resultados."
+        "Saudação amigável",
+        "Agradecimento pelo trabalho bem feito",
+        "Otimismo quanto à disponibilidade do colaborador para um novo projeto"
     ],
-    "explicacao_modelo": "A mensagem contém várias palavras e frases que expressam sentimentos positivos, tais como 'orgulho', 'satisfacao', 'reconhecimento' e 'gratidao'. O remetente elogia especificamente os esforços do destinatário em 'se preocupar com os detalhes', 'demonstrar o valor gerado e riscos de forma clara' e 'conter o plano de acao com datas e responsáveis'. Além disso, o remetente afirma que 'estas atitudes se refletem em resultados', sugerindo que o trabalho do destinatário teve um impacto positivo nos resultados da empresa."
+    "explicacao_modelo": "A frase expressa um sentimento positivo geral devido ao tom amigável, ao reconhecimento do trabalho realizado e à antecipação de um novo projeto. Palavras-chave como 'Boa tarde', 'cobriu as férias' e 'disponível' contribuem para esse sentimento."
 }

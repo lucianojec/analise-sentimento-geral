@@ -76,8 +76,8 @@
                 });
 
                 clientSelect.addEventListener('change', function() {
-                    const selectedClientId = this.value;
-                    const clientAnalysis = analysis.filter(a => a.cliente_id == selectedClientId);
+                    const selectedClientId = parseInt(this.value);
+                    const clientAnalysis = analysis.filter(a => a.cliente_id === selectedClientId);
 
                     const sentimentTableBody = document.getElementById('sentimentTable').querySelector('tbody');
                     sentimentTableBody.innerHTML = '';

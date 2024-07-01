@@ -51,7 +51,7 @@ if response.text:
         )
 
         # Salvar a resposta em um arquivo JSON na pasta public do frontend
-        with open('resultado.json', 'w', encoding='utf-8') as json_file:
+        with open(frontend_public_path, 'w', encoding='utf-8') as json_file:
             json.dump(response_json, json_file, ensure_ascii=False, indent=4)
             
     except json.JSONDecodeError as e:
