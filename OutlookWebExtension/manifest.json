@@ -1,0 +1,25 @@
+{
+    "manifest_version": 3,
+    "name": "Outlook Web Email Saver",
+    "version": "1.0",
+    "description": "Salva o corpo de emails e informações do remetente diretamente do Outlook na web.",
+    "permissions": ["activeTab", "storage", "https://outlook.live.com/*", "https://outlook.office.com/*"],
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": "icon.png"
+    },
+    "icons": {
+      "48": "icon.png"
+    },
+    "host_permissions": [
+      "*://outlook.live.com/*",
+      "*://outlook.office.com/*"
+    ],
+    "content_scripts": [
+      {
+        "matches": ["*://outlook.live.com/*", "*://outlook.office.com/*"],
+        "js": ["content.js"]
+      }
+    ]
+  }
+  
