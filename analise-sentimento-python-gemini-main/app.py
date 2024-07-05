@@ -1,13 +1,15 @@
+import os
 from flask import Flask, request, jsonify
 import google.generativeai as genai
 import json
 from datetime import datetime
 from psycopg2 import connect, sql
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)  # Configura CORS para permitir todas as origens
 
-# Configure a chave de API do Google Generative AI
-genai.configure(api_key="")
+genai.configure(api_key="AIzaSyAmgGTQxa1HMLBpOK7OiNuFo4_8x9_gZ9A")
 
 model = genai.GenerativeModel('gemini-pro')
 

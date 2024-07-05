@@ -14,7 +14,7 @@ function App() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch('/analyze', {
+      const res = await fetch('http://localhost:5000/analyze', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -31,7 +31,7 @@ function App() {
 
   const handleSave = async () => {
     try {
-      const res = await fetch('/api/save', {
+      const res = await fetch('http://localhost:5000/api/save', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -58,7 +58,7 @@ function App() {
           <input
             type="text"
             // value={cliente}
-            value='BMG'
+            value="BMG"
             onChange={(e) => setCliente(e.target.value)}
           />
         </div>
@@ -67,7 +67,7 @@ function App() {
           <input
             type="email"
             // value={email}
-            value='teste@bmg.com.br'
+            value="testeyaman@bmg.com.br"
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
