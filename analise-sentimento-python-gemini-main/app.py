@@ -7,7 +7,7 @@ from psycopg2 import connect, sql
 app = Flask(__name__)
 
 # Configure a chave de API do Google Generative AI
-genai.configure(api_key="YOUR_GEMINI_API_KEY")
+genai.configure(api_key="")
 
 model = genai.GenerativeModel('gemini-pro')
 
