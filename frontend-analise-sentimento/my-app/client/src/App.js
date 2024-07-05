@@ -57,8 +57,7 @@ function App() {
           <label>Cliente:</label>
           <input
             type="text"
-            // value={cliente}
-            value="BMG"
+            value={cliente}
             onChange={(e) => setCliente(e.target.value)}
           />
         </div>
@@ -66,16 +65,14 @@ function App() {
           <label>Email:</label>
           <input
             type="email"
-            // value={email}
-            value="testeyaman@bmg.com.br"
+            value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
         <div>
           <label>Texto:</label>
           <textarea
-            // value={texto}
-            value="Olá, Ricardo, tudo bem?Conforme alinhado em reunião, ficou definido que no Q1 – 2025 iremos atuar na entrega dos itens listados abaixo.Solicitamos o seu de acordo para que possamos eguir com esse planejamento.1.	(M) RITM0059335 - Oficio SUSEP - Nome Social - Demanda Regulatório - Forte para Q1-2025a.	O tamanho dessa melhoria foi definido como M (>1 mês e <= 2 meses) erá necessário incluir o campo Nome Social para que seja coletado no Direct e armazenado no AUTBANK para que seja possível gerar as propostas de Auto Integrado e Proteção Financeira com sse ampo, além de encaminhar o Nome Social para as seguradoras (Mitsui, Tokio e Cardif).2.	(GG) SEGURO FRANQUIA - Segona.	O tamanho do projeto foi classificado como GG (> 3 meses – não cabe um nico ciclo). No Q1-2025 iremos entregar o desenvolvimento referente ao Segon e em paralelo iremos continuar a análise dos demais pontos de desenvolvimento para que seja possível concluir a stimativa do projeto como um todo.b.	Segue anexo o Mapa Mental do projeto.Obrigado,Marciu"
+            value={texto}
             onChange={(e) => setTexto(e.target.value)}
           />
         </div>

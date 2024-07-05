@@ -9,7 +9,7 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)  # Configura CORS para permitir todas as origens
 
-genai.configure(api_key="AIzaSyAmgGTQxa1HMLBpOK7OiNuFo4_8x9_gZ9A")
+genai.configure(api_key='')
 
 model = genai.GenerativeModel('gemini-pro')
 
