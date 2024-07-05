@@ -1,25 +1,52 @@
 import React, { useState } from 'react';
 import './App.css'; // Assumindo que você tem um arquivo CSS para estilização
+import Modal from 'react-modal';
+
+Modal.setAppElement('#root');
 
 function App() {
   const [cliente, setCliente] = useState('');
+  const [email, setEmail] = useState('');
   const [texto, setTexto] = useState('');
   const [response, setResponse] = useState(null);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch('/api/analyze', {
+      const res = await fetch('/analyze', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ cliente, texto }),
+        body: JSON.stringify({ cliente, email, texto }),
       });
       const data = await res.json();
       setResponse(data);
+      setModalIsOpen(true);
     } catch (error) {
       console.error('Erro ao enviar o texto:', error);
+    }
+  };
+
+  const handleSave = async () => {
+    try {
+      const res = await fetch('/api/save', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(response),
+      });
+      const data = await res.json();
+      if (data.success) {
+        alert('Dados salvos com sucesso!');
+      } else {
+        alert('Erro ao salvar os dados');
+      }
+      setModalIsOpen(false);
+    } catch (error) {
+      console.error('Erro ao salvar os dados:', error);
     }
   };
 
@@ -35,6 +62,14 @@ function App() {
           />
         </div>
         <div>
+          <label>Email:</label>
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </div>
+        <div>
           <label>Texto:</label>
           <textarea
             value={texto}
@@ -43,8 +78,13 @@ function App() {
         </div>
         <button type="submit">Enviar</button>
       </form>
+
       {response && (
-        <div className="response">
+        <Modal
+          isOpen={modalIsOpen}
+          onRequestClose={() => setModalIsOpen(false)}
+          contentLabel="Resultado da Análise"
+        >
           <h2>Classe: {response.classe}</h2>
           <div>
             Sentimentos:
@@ -71,7 +111,9 @@ function App() {
             </ul>
           </div>
           <p>{response.explicacao_modelo}</p>
-        </div>
+          <button onClick={handleSave}>Gravar no Banco</button>
+          <button onClick={() => setModalIsOpen(false)}>Fechar</button>
+        </Modal>
       )}
     </div>
   );
