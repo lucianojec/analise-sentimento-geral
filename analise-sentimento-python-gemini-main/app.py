@@ -7,7 +7,7 @@ from psycopg2 import connect, sql
 app = Flask(__name__)
 
 # Configure a chave de API do Google Generative AI
-genai.configure(api_key="AIzaSyAmgGTQxa1HMLBpOK7OiNuFo4_8x9_gZ9A")
+genai.configure(api_key="YOUR_GEMINI_API_KEY")
 
 model = genai.GenerativeModel('gemini-pro')
 
@@ -87,9 +87,10 @@ def save_to_db():
 
     try:
         query = sql.SQL("""
-            INSERT INTO analisys (cliente_id, classe, sentimento, contribuicoes, razoes_possiveis, explicacao_modelo, data_insercao)
+            INSERT INTO analisys (cliente_id, classe, sentimento, contribuicoes, razoes_possiveis, explicacao_modelo, data_insercao, email)
             VALUES (
                 (SELECT id FROM clientes WHERE nome = %s),
+                %s,
                 %s,
                 %s,
                 %s,
@@ -98,7 +99,7 @@ def save_to_db():
                 %s
             ) RETURNING *;
         """)
-        values = (cliente, classe, sentimentos, contribuicoes, razoes_possiveis, explicacao_modelo, data_insercao)
+        values = (cliente, classe, sentimentos, contribuicoes, razoes_possiveis, explicacao_modelo, data_insercao, email)
         cur.execute(query, values)
         conn.commit()
         return jsonify({"success": True, "message": "Dados salvos com sucesso"})
