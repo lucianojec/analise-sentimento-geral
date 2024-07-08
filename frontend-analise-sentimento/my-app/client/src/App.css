@@ -22,3 +22,10 @@
 .item li {
   list-style-type: disc;
 }
+
+.loading {
+  font-size: 18px;
+  color: #007bff;
+  margin-top: 20px;
+}
+

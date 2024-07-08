@@ -1,4 +1,3 @@
-import os
 from flask import Flask, request, jsonify
 import google.generativeai as genai
 import json
@@ -78,18 +77,19 @@ def save_to_db():
     cliente = data.get('cliente')
     email = data.get('email')
     classe = data.get('classe')
-    sentimentos = json.dumps(data.get('sentimentos'))
     contribuicoes = json.dumps(data.get('contribuicoes'))
     razoes_possiveis = json.dumps(data.get('razoes_possiveis'))
     explicacao_modelo = data.get('explicacao_modelo')
     data_insercao = datetime.now()
 
-    if not cliente or not email or not classe or not sentimentos or not contribuicoes or not razoes_possiveis or not explicacao_modelo:
+    if not cliente or not email or not classe or not contribuicoes or not razoes_possiveis or not explicacao_modelo:
         return jsonify({"error": "Todos os campos são obrigatórios"}), 400
+
+    print(f"Saving to DB: cliente={cliente}, email={email}, classe={classe}, contribuicoes={contribuicoes}, razoes_possiveis={razoes_possiveis}, explicacao_modelo={explicacao_modelo}")
 
     try:
         query = sql.SQL("""
-            INSERT INTO analisys (cliente_id, classe, sentimento, contribuicoes, razoes_possiveis, explicacao_modelo, data_insercao, email)
+            INSERT INTO analisys (cliente_id, classe, contribuicoes, razoes_possiveis, explicacao_modelo, data_insercao, email)
             VALUES (
                 (SELECT id FROM clientes WHERE nome = %s),
                 %s,
@@ -97,16 +97,26 @@ def save_to_db():
                 %s,
                 %s,
                 %s,
-                %s,
                 %s
-            ) RETURNING *;
+            ) RETURNING id;
         """)
-        values = (cliente, classe, sentimentos, contribuicoes, razoes_possiveis, explicacao_modelo, data_insercao, email)
+        values = (cliente, classe, contribuicoes, razoes_possiveis, explicacao_modelo, data_insercao, email)
         cur.execute(query, values)
+        inserted_id = cur.fetchone()[0]
+
+        # Inserindo sentimentos na tabela sentimentos
+        for tipo, valor in data.get('sentimentos', {}).items():
+            query_sentimento = sql.SQL("""
+                INSERT INTO sentimentos (analisys_id, tipo, valor)
+                VALUES (%s, %s, %s)
+            """)
+            cur.execute(query_sentimento, (inserted_id, tipo, valor))
+
         conn.commit()
         return jsonify({"success": True, "message": "Dados salvos com sucesso"})
     except Exception as e:
         conn.rollback()
+        print(f"Error saving to DB: {e}")
         return jsonify({"error": str(e)}), 500
 
 if __name__ == '__main__':

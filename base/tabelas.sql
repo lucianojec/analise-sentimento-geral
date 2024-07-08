@@ -30,3 +30,21 @@ CREATE TABLE public.sentimentos (
 
 -- Chave estrangeira para a tabela sentimentos
 ALTER TABLE public.sentimentos ADD CONSTRAINT sentimentos_analisys_id_fkey FOREIGN KEY (analisys_id) REFERENCES public.analisys(id);
+
+-- Limpar a tabela clientes antes de inserir novos dados
+TRUNCATE TABLE public.clientes RESTART IDENTITY CASCADE;
+
+-- Inserir clientes na tabela clientes
+INSERT INTO public.clientes (id, nome) VALUES
+(1, 'bmg'),
+(2, 'bradesco'),
+(3, 'itau'),
+(4, 'simpress'),
+(5, 'sem parar'),
+(6, 'banco toyota'),
+(7, 'banco master'),
+(8, 'endered'),
+(9, 'santander'),
+(10, 'b3'),
+(11, 'dasa'),
+(12, 'crefisa');

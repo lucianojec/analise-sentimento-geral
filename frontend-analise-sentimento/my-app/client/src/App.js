@@ -10,9 +10,11 @@ function App() {
   const [texto, setTexto] = useState('');
   const [response, setResponse] = useState(null);
   const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true); // Inicia o carregamento
     try {
       const res = await fetch('http://localhost:5000/analyze', {
         method: 'POST',
@@ -26,11 +28,15 @@ function App() {
       setModalIsOpen(true);
     } catch (error) {
       console.error('Erro ao enviar o texto:', error);
+    } finally {
+      setLoading(false); // Termina o carregamento
     }
   };
 
   const handleSave = async () => {
+    setLoading(true); // Inicia o carregamento
     try {
+      // console.log('Payload:', JSON.stringify(response));
       const res = await fetch('http://localhost:5000/api/save', {
         method: 'POST',
         headers: {
@@ -47,6 +53,8 @@ function App() {
       setModalIsOpen(false);
     } catch (error) {
       console.error('Erro ao salvar os dados:', error);
+    } finally {
+      setLoading(false); // Termina o carregamento
     }
   };
 
@@ -76,8 +84,10 @@ function App() {
             onChange={(e) => setTexto(e.target.value)}
           />
         </div>
-        <button type="submit">Enviar</button>
+        <button type="submit" disabled={loading}>Enviar</button>
       </form>
+
+      {loading && <div className="loading">Carregando...</div>} {/* Indicador de carregamento */}
 
       {response && (
         <Modal
@@ -111,8 +121,8 @@ function App() {
             </ul>
           </div>
           <p>{response.explicacao_modelo}</p>
-          <button onClick={handleSave}>Gravar no Banco</button>
-          <button onClick={() => setModalIsOpen(false)}>Fechar</button>
+          <button onClick={handleSave} disabled={loading}>Gravar no Banco</button>
+          <button onClick={() => setModalIsOpen(false)} disabled={loading}>Fechar</button>
         </Modal>
       )}
     </div>
