@@ -1,3 +1,6 @@
+
+create database datafeelings
+
 -- Criação da tabela analisys
 CREATE TABLE public.analisys (
 	id serial4 NOT NULL,
